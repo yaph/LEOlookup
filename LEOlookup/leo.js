@@ -8,8 +8,11 @@ var LEO = {
         {"pair":"rude", "title":"Russisch"}
     ],
     lookup: function(info) {
-        // menuItemId start at 1 which is the id of the parent, so 2 must be subtracted to get the correct langs index
-        var pair = LEO.langs[info.menuItemId-2].pair;
+        // menuItemId count starts with parent item
+        var mid = info.menuItemId - info.parentMenuItemId;
+        // decrement ID if parent ID is not 0 to match correct lang pair
+        (0 != info.parentMenuItemId) && --mid;
+        var pair = LEO.langs[mid].pair;
         chrome.tabs.create({url: "http://dict.leo.org/"+pair+"?lp="+pair+"&search=" + info.selectionText})
     }
 };
