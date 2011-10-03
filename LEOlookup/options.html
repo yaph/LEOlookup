@@ -1,0 +1,96 @@
+<html>
+<head><title>LEOlookup Options</title></head>
+<style>
+body {width:100%;}
+ul,li{margin:0;padding:0;}
+li{list-style:none;}
+#wrapper{margin:2em auto;width:960px;}
+#status,#save_options{float:left;}
+#save_options{font-size:2em;margin:.5em 0;}
+#status{font-size:1.2em;margin:1.5em .5em;color:green;}
+
+.nav_checkbox {float:left;}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+</style>
+<script src="sitesearch.js"></script>
+<script src="urls.js"></script>
+<script type="text/javascript">
+var urls, lis = null;
+var cache_id = 'LEOlookup_settings';
+// Loop through options list and call callback with list object.
+function cycleOptions(callback) {
+    if (!urls) urls = document.getElementById('urls')
+    if (!lis) lis = urls.getElementsByTagName('li');
+    for (i in lis) {
+        var li = lis[i];
+        if ('object' != typeof li)
+            continue;
+        callback(li);
+    }
+}
+// Saves options to localStorage.
+function saveOptions() {
+    var selected = [];
+
+    cycleOptions(function(li) {
+        var chk = li.getElementsByTagName('input')[0];
+        if (chk.checked)
+            selected.push(chk.value);
+    });
+
+    localStorage[cache_id] = selected;
+    Sitesearch.reloadContextMenu();
+
+    // Update status to let user know options were saved.
+    var status = document.getElementById('status');
+    status.innerHTML = 'Options Saved.';
+    setTimeout(function(){status.innerHTML = '';}, 750);
+}
+
+function createOption(url) {
+    var checked = '';
+    if (!Sitesearch.selected.length || -1 != Sitesearch.selected.indexOf(url.id)) {
+        checked = 'checked="checked"';
+    }
+    return '<li><input ' + checked + ' type="checkbox" name="url" value="' + url.id + '">' + url.name + '</li>';
+}
+
+// Restores checkboxes states to saved value from localStorage.
+function showOptions() {
+    Sitesearch.init(cache_id);
+    var options = Sitesearch.cycle(createOption);
+    document.getElementById('urls').innerHTML = '<form><ul>' + options.join('') + '</ul></form>';
+}
+function selectAll() {
+    document.getElementById('nav_all').checked = 'checked';
+    document.getElementById('nav_none').checked = null;
+    cycleOptions(function(li) {
+        li.getElementsByTagName('input')[0].checked = 'checked';
+    });
+}
+function selectNone() {
+    document.getElementById('nav_all').checked = null;
+    document.getElementById('nav_none').checked = 'checked';
+    cycleOptions(function(li) {
+        li.getElementsByTagName('input')[0].checked = null;
+    });
+}
+</script>
+<body onload="showOptions()">
+<div id="wrapper">
+<h1>LEOlookup Settings</h1>
+<h2>Language selection</h2>
+<div id="urls"></div>
+<div id="nav" class="clearfix">
+<hr>
+<div class="nav_checkbox"><input type="checkbox" id="nav_all" onclick="selectAll()">Select all</div>
+<div class="nav_checkbox"><input type="checkbox" id="nav_none" onclick="selectNone()">Select none</div>
+</div>
+<button id="save_options" onclick="saveOptions()">Save</button>
+<div id="status"></div>
+</div>
+</body>
+</html>
