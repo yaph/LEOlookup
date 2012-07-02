@@ -1,7 +1,7 @@
 {
   "name": "LEO Wörterbuchsuche",
   "description": "Deutsche Wortübersetzungen auf dict.leo.org suchen. Sprachen: Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch",
-  "version": "1.0",
+  "version": "1.1",
   "permissions": ["contextMenus"],
   "background_page": "background.html",
   "options_page": "options.html",

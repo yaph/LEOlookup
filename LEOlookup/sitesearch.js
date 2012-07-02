@@ -1,8 +1,7 @@
 var Sitesearch = {
     cache_id: '',
     urls: [],
-    menu_item_count: 0,
-    menu_items_created_count: 0,
+    urlMap: {},
     selected: [],
     selected_urls: [],
     init: function(cache_id) {
@@ -11,7 +10,6 @@ var Sitesearch = {
         Sitesearch.loadSelected();
     },
     resetVars: function() {
-        Sitesearch.menu_item_count = 0;
         Sitesearch.selected = Sitesearch.selected_urls = [];
     },
     loadSelected: function() {
@@ -23,24 +21,8 @@ var Sitesearch = {
             });
         }
     },
-    search: function(info) {
-        // TODO try parent item and IDs instead of keeping track of created count
-        // Chrome increments menuItemId values with every created menu item within a browser session
-        var lid = Sitesearch.menu_item_count - Sitesearch.menu_items_created_count + info.menuItemId - 1;
-        var site = null;
-        if (Sitesearch.selected_urls) {
-            site = Sitesearch.selected_urls[lid];
-        }
-        else {
-            site = Sitesearch.urls[lid];
-        }
-
-        if (site) {
-            chrome.tabs.create({'url': site.url.replace('#SEARCH#', info.selectionText)});
-        }
-        else {
-            alert("menuItemId: " + info.menuItemId + "\nList ID: " + lid + "\nItem count: " + Sitesearch.menu_item_count + "\nCreated count: " + Sitesearch.menu_items_created_count + "\nSelected URLs" + Sitesearch.selected_urls);
-        }
+    search: function(info, tab) {
+        chrome.tabs.create({'url': Sitesearch.urlMap[info.menuItemId].replace('#SEARCH#', info.selectionText)});
     },
     cycle: function(callback) {
         var len = Sitesearch.urls.length;
@@ -52,13 +34,12 @@ var Sitesearch = {
         return ret;
     },
     createContextMenu: function() {
-        var item_count = 0;
         var selected = [];
         Sitesearch.cycle(function(url) {
             if (!Sitesearch.selected.length || -1 != Sitesearch.selected.indexOf(url.id)) {
-                chrome.contextMenus.create({'title': url.name, 'contexts':['selection'], 'onclick': Sitesearch.search});
+                var mid = chrome.contextMenus.create({'title': url.name, 'contexts':['selection'], 'onclick': Sitesearch.search});
+                Sitesearch.urlMap[mid] = url.url;
                 selected.push(url);
-                item_count++;
             }
         });
         // when no URL is selected show all
@@ -71,10 +52,7 @@ var Sitesearch = {
             chrome.contextMenus.create({'title': 'Options', 'contexts':['selection'], 'onclick': function(info, tab){
                 chrome.tabs.create({'url': 'options.html'});
             }});
-            item_count += 2;
         }
-        Sitesearch.menu_item_count = item_count;
-        Sitesearch.menu_items_created_count += item_count;
     },
     reloadContextMenu: function() {
         var bg = chrome.extension.getBackgroundPage();
