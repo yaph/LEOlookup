@@ -1,5 +1,8 @@
 #!/bin/sh
-zip -r LEOlookup.zip LEOlookup
-mv LEOlookup.zip /tmp/
 rm -rf /tmp/LEOlookup
-unzip /tmp/LEOlookup.zip -d /tmp
+cp -R LEOlookup /tmp
+find /tmp/LEOlookup -name '*.git' -exec rm -f {} \;
+find /tmp/LEOlookup -name '*-example.*' -exec rm -f {} \;
+cd /tmp
+zip -rv LEOlookup.zip LEOlookup
+rm -rf /tmp/LEOlookup
