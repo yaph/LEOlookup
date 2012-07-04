@@ -1,4 +1,7 @@
-Sitesearch.urls = [
+var cache_id = 'LEOlookup_settings';
+var title = 'LEOlookup Settings';
+var heading = 'Language selection';
+var sites = [
     {
         'id': 'ende.dict.leo.org',
         'name': 'Englisch <-> Deutsch',
