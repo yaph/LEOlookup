@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "version": "1.3",
+  "version": "1.4",
   "name": "LEO Wörterbuchsuche",
-  "description": "Deutsche Wortübersetzungen auf dict.leo.org suchen. Sprachen: Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch",
+  "description": "Deutsche Wortübersetzungen auf dict.leo.org suchen. Sprachen: Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch, Portugiesisch, Polnisch",
   "permissions": ["contextMenus"],
   "web_accessible_resources": [
     "settings.js",
