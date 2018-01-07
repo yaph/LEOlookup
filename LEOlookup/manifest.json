@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.7",
+  "version": "1.8",
   "name": "LEO Wörterbuchsuche",
   "description": "Übersetzungen auf dict.leo.org suchen: Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch, Portugiesisch, Polnisch",
   "permissions": ["contextMenus"],
@@ -12,9 +12,13 @@
   "background": {
     "scripts": ["settings.js", "cmsearch/sitesearch.js"]
   },
+  "browser_action": {
+    "default_icon": "icons/icon-32.png"
+  },
   "options_page": "options.html",
   "icons" : {
     "16" : "LEO-16.png",
+    "32" : "LEO-32.png",
     "48" : "LEO-48.png",
     "128" : "LEO-128.png"
   }
