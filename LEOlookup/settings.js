@@ -1,7 +1,7 @@
-var cache_id = 'LEOlookup_settings';
-var title = 'LEOlookup Einstellungen';
-var heading = 'Sprachpaare auswählen';
-var sites = [
+const cache_id = 'LEOlookup_settings';
+const title = 'LEOlookup Einstellungen';
+const heading = 'Sprachpaare auswählen';
+const sites = [
     {
         'id': 'ende.dict.leo.org',
         'name': 'Englisch <-> Deutsch',
@@ -10,7 +10,7 @@ var sites = [
     },
     {
         'id': 'frde.dict.leo.org',
-        'name': unescape('Franz%F6sisch') + ' <-> Deutsch',
+        'name': 'Französisch <-> Deutsch',
         'url': 'https://dict.leo.org/französisch-deutsch/#SEARCH#',
         'locale': 'fr'
     },
