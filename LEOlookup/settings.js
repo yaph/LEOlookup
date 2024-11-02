@@ -1,53 +1,15 @@
-const cache_id = 'LEOlookup_settings';
-const title = 'LEOlookup Einstellungen';
-const heading = 'Sprachpaare auswählen';
-const sites = [
-    {
-        'id': 'ende.dict.leo.org',
-        'name': 'Englisch <-> Deutsch',
-        'url': 'https://dict.leo.org/englisch-deutsch/#SEARCH#',
-        'locale': 'uk'
-    },
-    {
-        'id': 'frde.dict.leo.org',
-        'name': 'Französisch <-> Deutsch',
-        'url': 'https://dict.leo.org/französisch-deutsch/#SEARCH#',
-        'locale': 'fr'
-    },
-    {
-        'id': 'esde.dict.leo.org',
-        'name': 'Spanisch <-> Deutsch',
-        'url': 'https://dict.leo.org/spanisch-deutsch/#SEARCH#',
-        'locale': 'es'
-    },
-    {
-        'id': 'itde.dict.leo.org',
-        'name': 'Italienisch <-> Deutsch',
-        'url': 'https://dict.leo.org/italienisch-deutsch/#SEARCH#',
-        'locale': 'it'
-    },
-    {
-        'id': 'chde.dict.leo.org',
-        'name': 'Chinesisch <-> Deutsch',
-        'url': 'https://dict.leo.org/chinesisch-deutsch/#SEARCH#',
-        'locale': 'ch'
-    },
-    {
-        'id': 'rude.dict.leo.org',
-        'name': 'Russisch <-> Deutsch',
-        'url': 'https://dict.leo.org/russisch-deutsch/#SEARCH#',
-        'locale': 'ru'
-    },
-    {
-        'id': 'ptde.dict.leo.org',
-        'name': 'Portugiesisch <-> Deutsch',
-        'url': 'https://dict.leo.org/portugiesisch-deutsch/#SEARCH#',
-        'locale': 'pt'
-    },
-    {
-        'id': 'plde.dict.leo.org',
-        'name': 'Polnisch <-> Deutsch',
-        'url': 'https://dict.leo.org/polnisch-deutsch/#SEARCH#',
-        'locale': 'pl'
-    }
-];
+export const cache_id = 'LEOlookup_settings';
+export const lang_pairs = new Map([
+    ['ende', {'name': 'Englisch ↔️ Deutsch', 'path': 'englisch-deutsch'}],
+    ['frde', {'name': 'Französisch ↔️ Deutsch', 'path': 'französisch-deutsch' }],
+    ['esde', {'name': 'Spanisch ↔️ Deutsch', 'path': 'spanisch-deutsch'}],
+    ['itde', {'name': 'Italienisch ↔️ Deutsch', 'path': 'italienisch-deutsch'}],
+    ['chde', {'name': 'Chinesisch ↔️ Deutsch', 'path': 'chinesisch-deutsch'}],
+    ['rude', {'name': 'Russisch ↔️ Deutsch', 'path': 'russisch-deutsch'}],
+    ['ptde', {'name': 'Portugiesisch ↔️ Deutsch', 'path': 'portugiesisch-deutsch'}],
+    ['plde', {'name': 'Polnisch ↔️ Deutsch', 'path': 'polnisch-deutsch'}],
+    ['enes', {'name': 'Englisch ↔️ Spanisch', 'path': 'spanisch-english'}],
+    ['enfr', {'name': 'Englisch ↔️ Französisch', 'path': 'french-english'}],
+    ['enru', {'name': 'Englisch ↔️ Russisch', 'path': 'russion-english'}],
+    ['espt', {'name': 'Spanisch ↔️ Portugiesisch', 'path': 'portugués-español'}]
+]);
