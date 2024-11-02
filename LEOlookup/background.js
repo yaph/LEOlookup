@@ -7,6 +7,7 @@ chrome.runtime.onInstalled.addListener(() => {
         if (data[cache_id]) {
             updateContextMenus(data[cache_id]);
         } else {
+            // By default show "English - Deutsch" menu item
             const pair = lang_pairs.get('ende');
             chrome.contextMenus.create({
                 id: pair.path,
