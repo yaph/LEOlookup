@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LEOlookup Einstellungen</title>
   <style>
+    .language-pair {
+      margin: 0.5rem 0;
+    }
+    #message {
+      margin-left: 1rem;
+    }
     body {
       padding: 0 1rem;
       font-family: Arial, sans-serif;
@@ -13,13 +19,7 @@
     input {
       margin-right: .4rem;
     }
-    #message {
-      margin-left: 1rem;
-    }
-    .language-pair {
-      margin: 0.5rem 0;
-    }
-    .save-button {
+    button {
       margin-top: 1rem;
       padding: .5rem 1rem;
       background-color: #4CAF50;
@@ -29,7 +29,7 @@
       cursor: pointer;
       font-size: 1.2rem;
     }
-    .save-button:hover {
+    button:hover {
       background-color: #45a049;
     }
   </style>
@@ -37,7 +37,9 @@
 <body>
   <h1>Sprachpaarauswahl</h1>
   <div id="language-pairs"></div>
-  <button id="save" class="save-button">Speichern</button><span id="message"></span>
+  <button id="check-all">Alle wählen</button>
+  <button id="uncheck-all">Keine wählen</button>
+  <button id="save">Speichern</button><span id="message"></span>
   <hr>
   <footer>Sie können dieses Projekt mit einer <a href="https://paypal.me/rgmz">Spende unterstützen</a>, vielen Dank!</footer>
   <script src="options.js" type="module"></script>

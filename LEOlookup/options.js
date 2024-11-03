@@ -32,6 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Check all
+    document.getElementById('check-all').addEventListener('click', () => {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+    });
+
+    // Uncheck all
+    document.getElementById('uncheck-all').addEventListener('click', () => {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    });
+
     // Save settings
     document.getElementById('save').addEventListener('click', () => {
         const active_lang_pairs = [];

@@ -30,7 +30,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 // Update context menus based on active language pairs
 function updateContextMenus(active_lang_pairs) {
     if (!active_lang_pairs.length) {
-        return;
+        active_lang_pairs = ['ende'];
     }
 
     // Remove all existing items
