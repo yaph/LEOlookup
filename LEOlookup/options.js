@@ -32,19 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Check all
-    document.getElementById('check-all').addEventListener('click', () => {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = true;
-        });
-    });
-
-    // Uncheck all
-    document.getElementById('uncheck-all').addEventListener('click', () => {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-        });
-    });
+    // Check / Uncheck all
+    document.getElementById('check-all').addEventListener('click', setCheckboxes.bind(null, true));
+    document.getElementById('uncheck-all').addEventListener('click', setCheckboxes.bind(null, false));
 
     // Save settings
     document.getElementById('save').addEventListener('click', () => {
@@ -72,3 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+function setCheckboxes(val) {
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = val;
+    });
+}
