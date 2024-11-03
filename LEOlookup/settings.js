@@ -8,8 +8,8 @@ export const lang_pairs = new Map([
     ['rude', {'name': '🇷🇺 Russisch ↔️ 🇩🇪 Deutsch', 'path': 'russisch-deutsch'}],
     ['ptde', {'name': '🇵🇹 Portugiesisch ↔️ 🇩🇪 Deutsch', 'path': 'portugiesisch-deutsch'}],
     ['plde', {'name': '🇵🇱 Polnisch ↔️ 🇩🇪 Deutsch', 'path': 'polnisch-deutsch'}],
-    ['enes', {'name': '🇬🇧 Englisch ↔️ 🇪🇸 Spanisch', 'path': 'spanisch-english'}],
+    ['enes', {'name': '🇬🇧 Englisch ↔️ 🇪🇸 Spanisch', 'path': 'spanish-english'}],
     ['enfr', {'name': '🇬🇧 Englisch ↔️ 🇫🇷 Französisch', 'path': 'french-english'}],
-    ['enru', {'name': '🇬🇧 Englisch ↔️ 🇷🇺 Russisch', 'path': 'russion-english'}],
+    ['enru', {'name': '🇬🇧 Englisch ↔️ 🇷🇺 Russisch', 'path': 'russian-english'}],
     ['espt', {'name': '🇪🇸 Spanisch ↔️ 🇵🇹 Portugiesisch', 'path': 'portugués-español'}]
 ]);

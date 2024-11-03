@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.setAttribute('class', 'language-pair');
 
         const input = document.createElement('input');
-        input.setAttribute('type', 'checkbox');
-        input.setAttribute('id', id);
-        input.setAttribute('value', id);
+        Object.assign(input, {type: 'checkbox', id: id, value: id});
 
         const label = document.createElement('label');
         label.setAttribute('for', id);
@@ -33,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Check / Uncheck all
-    document.getElementById('check-all').addEventListener('click', setCheckboxes.bind(null, true));
-    document.getElementById('uncheck-all').addEventListener('click', setCheckboxes.bind(null, false));
+    clickHandler('check-all', setCheckboxes.bind(null, true));
+    clickHandler('uncheck-all', setCheckboxes.bind(null, false));
 
     // Save settings
-    document.getElementById('save').addEventListener('click', () => {
+    clickHandler('save', () => {
         const active_lang_pairs = [];
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -62,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+function clickHandler(element_id, callback) {
+    document.getElementById(element_id).addEventListener('click', callback);
+}
 
 
 function setCheckboxes(val) {
