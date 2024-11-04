@@ -16,8 +16,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
 // Update context menus based on active language pairs
 function updateContextMenus(active_lang_pairs) {
+    // Show all pairs if none is selected
     if (!active_lang_pairs || !active_lang_pairs.length) {
-        active_lang_pairs = ['ende'];
+        active_lang_pairs = Array.from(lang_pairs.keys());
     }
 
     // Remove all existing items
