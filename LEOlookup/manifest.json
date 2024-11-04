@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "version": "2.0",
     "name": "LEO Wörterbuchsuche",
-    "description": "Übersetzungen in den Wörterbüchern auf dict.leo.org suchen: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch, Portugiesisch, Polnisch",
+    "description": "Übersetzungen auf dict.leo.org: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Chinesisch, Russisch, Portugiesisch, Polnisch",
     "background": {
         "service_worker": "background.js",
         "type": "module"
